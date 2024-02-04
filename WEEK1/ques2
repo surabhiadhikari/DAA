@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int i, n, tc, k, j;
+    cout << "enter the number of test cases";
+    cin >> tc;
+    for (i = 0; i < tc; i++) 
+    {
+        cout << "enter the number of elements";
+        cin >> n;
+        int a[n];
+        cout << "enter the elements";
+        for (j = 0; j < n; j++) 
+        {
+            cin >> a[j];
+        }
+        cout << "enter the key";
+        cin >> k;
+        int low = 0, comp = 0, high, mid;
+        high = n - 1;
+        while (low <= high)
+        {
+            mid = (low + high) / 2;
+            comp++;
+            if (a[mid] == k)
+            {
+                cout << "Present " << comp << endl;
+                break;
+            }
+            else if (a[mid] < k)
+            {
+                low = mid + 1;
+            }
+            else
+            {
+                high = mid - 1;
+            }
+        }
+        if (low > high)
+        {
+            cout << "Not Present " << comp << endl;
+        }
+    }
+    return 0;
+}
